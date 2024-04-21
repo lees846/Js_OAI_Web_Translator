@@ -1,0 +1,143 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(191, 225, 236);
+    min-height: 100vh;
+    
+    text-align: center;
+    font-family: Times, 'Times New Roman', serif;
+    color: rgb(1, 1, 40);
+}
+
+header {
+    background-color: rgb(244, 244, 245);
+    width: 100%;
+    padding: 13px 5% 13px 5%;
+    display: flex;
+    align-items: baseline;
+    /* ChatGPT recommended border-box to avoid vertical scroll when the page is loaded */
+    box-sizing: border-box; 
+
+    border-style: none none solid none;
+    border-color: rgb(149, 149, 173);
+    border-width: 1px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+main {
+    /* margin: 0 2% 0 2%; */
+    text-align: left;
+    justify-content: center;
+    margin: 10px 0 0 0;
+}
+
+#setupContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#inputForm {
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+    background-color: rgb(245, 250, 255);
+    padding: 20px;
+    width : 30%;
+    min-width: 400px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+aside#instructions {
+    border-style: solid;
+    border-color: white;
+    background-color: rgb(245, 250, 255);
+    border-width: 1px;
+    padding: 20px;
+    width : 30%;   
+    min-width: 400px; 
+}
+
+section#textOutput {
+    background-color: rgb(245, 250, 255);
+    
+    width: 70%;
+    min-width: 400px;
+    max-width: 800px;
+    margin: 10px 0 10px 0;
+    padding: 20px 20px 0 20px;
+}
+
+section#textOutput p {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: gray;
+    background-color: white;
+    margin-top: 5px;
+
+    min-height: 200px;
+}
+
+footer {
+    background-color: rgb(244, 244, 245);
+    width: 100%;
+
+    border-style: solid none none none;
+    border-color: rgb(149, 149, 173);
+    border-width: 1px;
+    box-sizing: border-box; 
+
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2) inset;
+}
+
+
+h1 {
+    font-family: 'Franklin Gothic', Arial, sans-serif;
+    font-size: larger;
+}
+
+label {
+    font-size: medium;
+    margin: 4px 0px 0px 0px;
+}
+
+section#textOutput label {
+    margin-bottom: 0px;
+}
+
+p {
+    font-size: medium;
+}
+
+p#outputParagraph {
+    padding: 10px;
+}
+
+footer p {
+    font-size: small;
+}
+
+input {
+    outline-style: none;
+    margin-bottom: 20px;
+}
+
+select {
+    margin: 0 0 20px 0;
+}
+
+textarea {
+    margin: 0 0 20px 0;
+    min-width: 350px;
+    min-height: 200px;
+    font-size: small;
+}
