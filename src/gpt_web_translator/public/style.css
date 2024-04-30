@@ -11,7 +11,7 @@ html {
     min-height: 100vh;
 
     text-align: center;
-    font-family: Times, 'Times New Roman', serif;
+    font-family: 'Franklin Gothic', Arial, sans-serif;
     color: rgb(1, 1, 40);
 }
 
@@ -37,6 +37,16 @@ main {
     text-align: left;
     justify-content: center;
     margin: 10px 0 0 0;
+}
+
+section {
+    background-color: rgb(245, 250, 255);
+    width: 70%;
+    min-width: 400px;
+    max-width: 800px;
+    margin: 10px 0 10px 0;
+    padding: 20px 20px 0 20px;
+    border-radius: 10px;
 }
 
 #setupContainer {
@@ -76,14 +86,9 @@ aside#instructions {
     min-width: 400px;
 }
 
-section {
-    background-color: rgb(245, 250, 255);
-    width: 70%;
-    min-width: 400px;
-    max-width: 800px;
-    margin: 10px 0 10px 0;
-    padding: 20px 20px 0 20px;
-    border-radius: 10px;
+/* TODO textInput width/height etc. */
+textarea {
+    padding: 5px 5px 20px 5px;
 }
 
 section#textOutput p {
@@ -100,7 +105,7 @@ section#textOutput p {
 footer {
     background-color: rgb(244, 244, 245);
     width: 100%;
-
+    margin-top: 10px;
     border-style: solid none none none;
     border-color: rgb(149, 149, 173);
     border-width: 1px;
@@ -117,11 +122,40 @@ h1 {
 
 label {
     font-size: medium;
-    margin: 4px 0px 0px 0px;
+    margin: 4px 0px 10px 0px;
+}
+
+#inputTextLabel {
+    font-family: 'Franklin Gothic', Arial, sans-serif;
+    font-size: larger;
+    font-weight: bold;
+}
+
+button,
+select {
+    background-color: white;
+    border-style: solid;
+    border-color: rgb(18, 71, 151);
+    border-width: 1px;
+    border-radius: 8px;
+    padding: 5px 8px 5px 8px;
+    background-color: rgb(52, 125, 227);
+
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+button:hover,
+select:hover {
+    background-color: rgb(67, 156, 239);
+    border-color: rgb(44, 107, 203);
+    box-shadow: 2px 2px 2px rgba(10, 0, 24, 0.2);
+
 }
 
 button#textSuggestion {
-    margin: -50px 15px 40px auto;
+    margin: -60px 15px 30px auto;
 }
 
 button#translate {

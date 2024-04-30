@@ -38,28 +38,6 @@ const topicsDeck = [
   "a pet store/animal shelter",
 ];
 
-translateButton.addEventListener("click", () => {
-  // Reference the current values of the input fields and convert to URI components for the url
-  const langLevel = encodeURIComponent(
-    langLevelElement[langLevelElement.selectedIndex].firstChild.data,
-  );
-  const outputLanguage = encodeURIComponent(outputLanguageElement.value);
-  const inputText = encodeURIComponent(inputTextElement.value);
-
-  fetch(
-    `/api/gpt/response?outputLanguage=${outputLanguage}&langLevel=${langLevel}&inputText=${inputText}`,
-  )
-    .then((response) => response.text())
-    .then((responseText) => {
-      const outputParagraph = document.getElementById("outputParagraph");
-      console.log(`Response text: ${responseText}`);
-      outputParagraph.innerText = responseText;
-    })
-    .catch((error) => {
-      console.error("Fetch error:", error);
-    });
-});
-
 suggestButton.addEventListener("click", () => {
   const langLevel = encodeURIComponent(
     langLevelElement[langLevelElement.selectedIndex].firstChild.data,
@@ -67,7 +45,9 @@ suggestButton.addEventListener("click", () => {
   // Select a random topic from topicsDeck
   const randomIndex = Math.round(Math.random() * topicsDeck.length);
 
-  // TODO: Clear/change the text currently in box before re-generating ("..."?)
+  // Set text to loading
+  inputTextElement.value = "One moment...";
+
   // Send random topic to backend with language level
   fetch(
     `/api/gpt/suggest?randomTopic=${
@@ -77,7 +57,30 @@ suggestButton.addEventListener("click", () => {
     .then((response) => response.text())
     .then((inputSuggestion) => {
       console.log(`Input text: ${inputSuggestion}`);
-      inputTextElement.innerText = inputSuggestion;
+      inputTextElement.value = inputSuggestion;
+    })
+    .catch((error) => {
+      console.error("Fetch error:", error);
+    });
+});
+
+translateButton.addEventListener("click", () => {
+  // Reference the current values of the input fields and convert to URI components for the url
+  const langLevel = encodeURIComponent(
+    langLevelElement[langLevelElement.selectedIndex].firstChild.data,
+  );
+  const outputLanguage = encodeURIComponent(outputLanguageElement.value);
+  const inputText = encodeURIComponent(inputTextElement.value);
+
+  outputParagraph.innerText = "Wait for it...";
+  fetch(
+    `/api/gpt/response?outputLanguage=${outputLanguage}&langLevel=${langLevel}&inputText=${inputText}`,
+  )
+    .then((response) => response.text())
+    .then((responseText) => {
+      const outputParagraph = document.getElementById("outputParagraph");
+      console.log(`Response text: ${responseText}`);
+      outputParagraph.innerText = responseText;
     })
     .catch((error) => {
       console.error("Fetch error:", error);
